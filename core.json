@@ -1,0 +1,12 @@
+﻿{
+  "Core": {
+    "DebugMode": true,
+    "InstanceName": "1BTC-Account",
+    "TimezoneOffset": 1, 
+    "PasswordProtected":  true, 
+    "Password": "b84967c4f073b71405404f3719c788cd",
+    "HealthCheckEnabled": true,
+    "HealthCheckInterval": 180,
+    "HealthCheckSuspendTradingTimeout": 900 
+  }
+}

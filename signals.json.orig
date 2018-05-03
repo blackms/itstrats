@@ -1,0 +1,104 @@
+﻿{
+  "Signals": {
+    "Enabled": true,
+    "RuleCheckInterval": 3, // Rules check frequency (in seconds)
+    "GlobalRatingSignals": [ // Signals list to calculate the Global Rating from
+      "TV-5mins",
+      "TV-15mins",
+      "TV-60mins"
+    ],
+    "Definitions": [
+      {
+        "Name": "TV-5mins", 
+        "Receiver": "TradingViewCryptoSignalReceiver",
+        "Configuration": {
+          "PollingInterval": 7,
+          "Period": 5,
+          "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+          "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+        }
+      },
+      {
+        "Name": "TV-15mins",
+        "Receiver": "TradingViewCryptoSignalReceiver",
+        "Configuration": {
+          "PollingInterval": 7,
+          "Period": 15,
+          "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+          "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+        }
+      },
+      {
+        "Name": "TV-60mins",
+        "Receiver": "TradingViewCryptoSignalReceiver",
+        "Configuration": {
+          "PollingInterval": 7,
+          "Period": 60,
+          "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+          "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+        }
+      }
+    ],
+
+    // Issue a buy request when any of the following rules are satisfied (ordered by priority)
+    // The rule is satisfied when the coin volume is higher than MinVolume and all the specified conditions are met
+    "Rules": [
+      {
+        "Enabled": true,
+        "Name": "Safe", // Rule name
+        "MinVolume": 100000, // Minimum volume (in USD)
+        "CostMultiplier": 1.5, // Max cost multiplier
+        "Conditions": [ // Issue a buy request when all the below conditions are met. When trailing is enabled, its conditions must be met first.
+          {
+            "Signal": "TV-5mins", // Signal name (as defined above)
+            "MinRating": 0.20
+          },
+          {
+            "Signal": "TV-15mins",
+            "MinRating": 0.45
+          },
+          {
+            "Signal": "TV-60mins",
+            "MinRating": 0.00
+          }
+        ],
+        "Trailing": {
+          "Enabled": true,
+          "MinDuration": 30, // Minimum trail duration (in seconds) (0 = no min duration)
+          "MaxDuration": 480, // Maximum trail duration (in seconds)
+          "StartConditions": [ // Begin trailing when all the below conditions are met.
+            {
+              "Signal": "TV-15mins",
+              "MinRating": 0.30,
+              "MaxRating": 0.40
+            }
+          ]
+        }
+      },
+      {
+        "Enabled": false,
+        "Name": "Fast",
+        "MinVolume": 10000,
+        "CostMultiplier": 1,
+        "Conditions": [
+          {
+            "Signal": "TV-5mins",
+            "MinRating": 0.25
+          }
+        ],
+        "Trailing": {
+          "Enabled": true,
+          "MinDuration": 0,
+          "MaxDuration": 240,
+          "StartConditions": [
+            {
+              "Signal": "TV-5mins",
+              "MinRating": 0.05,
+              "MaxRating": 0.10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

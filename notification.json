@@ -1,0 +1,9 @@
+﻿{
+  "Notification": {
+    "Enabled": true,
+    "TelegramEnabled":  true,
+    "TelegramBotToken": "582056737:AAExQaBz_RbA6JUH-DnYREU_dNUq4hNksuc",
+    "TelegramChatId": -1001159521147,
+    "TelegramAlertsEnabled":  true
+  }
+}
