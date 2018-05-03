@@ -1,0 +1,76 @@
+﻿{
+  "Trading": {
+    
+    "Enabled": true,
+    "Market": "BTC", 
+    "Exchange": "Binance", 
+    "MaxPairs": 30, 
+    "MinCost": 0.5, 
+    "ExcludedPairs": [ "BNBBTC" ], 
+
+    
+    "BuyEnabled": true, 
+    "BuyType": "Market", 
+    "BuyMaxCost": 0.8, 
+    "BuyMinBalance": 0, 
+    "BuySamePairTimeout": 900, 
+    "BuyTrailing": -0.15, 
+    "BuyTrailingStopMargin": 0.05, 
+
+    "BuyDCAEnabled": true, 
+    "BuyDCAMultiplier": 1, 
+    "BuyDCASamePairTimeout": 3600, 
+    "BuyDCATrailing": -0.15, 
+    "BuyDCATrailingStopMargin": 0.05, 
+
+    
+    "SellEnabled": true, 
+    "SellType": "Market", 
+    "SellMargin": 1, 
+    "SellTrailing": 0.25, 
+    "SellTrailingStopMargin": 1.30, 
+    "SellStopLossEnabled": false, 
+    "SellStopLossMargin": -5, 
+
+    "SellDCAMargin": 1.30, 
+    "SellDCATrailing": 0.40, 
+    "SellDCATrailingStopMargin": 1.00, 
+
+    
+    "DCALevels": [ 
+      {
+        "Margin": -1, 
+        "BuyMultiplier": 1, 
+        "BuySamePairTimeout": 3600, 
+        "BuyTrailing": -0.15, 
+        "BuyTrailingStopMargin": 0.05, 
+        "SellMargin": 1.30, 
+        "SellTrailing": 0.50, 
+        "SellTrailingStopMargin": 1.00 
+      },
+      {
+        "Margin": -1.5
+      },
+      {
+        "Margin": -1.5
+      },
+      {
+        "Margin": -2
+      },
+      {
+        "Margin": -3
+      }
+    ],
+
+    
+    "TradingCheckInterval": 1, 
+    "AccountRefreshInterval": 360, 
+    "AccountInitialBalance": 0.2, 
+    "AccountInitialBalanceDate": "2018-04-08T00:00:00+00:00", 
+    "AccountFilePath": "data/exchange-account.json",
+
+    "VirtualTrading": true, 
+    "VirtualAccountInitialBalance": 200, 
+    "VirtualAccountFilePath": "data/virtual-account.json"
+  }
+}

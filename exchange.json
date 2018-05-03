@@ -1,0 +1,7 @@
+﻿{
+  "Exchange": {
+    "KeysPath": "keys.bin", 
+    "RateLimitOccurences": 40, 
+    "RateLimitTimeframe": 10 
+  }
+}
