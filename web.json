@@ -1,0 +1,7 @@
+﻿{
+  "Web": {
+    "Enabled": true,
+    "DebugMode": true,
+    "Port": 11000
+  }
+}

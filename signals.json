@@ -1,0 +1,73 @@
+﻿{
+    "Signals": {
+        "Enabled": true,
+        "RuleCheckInterval": 3,
+        "GlobalRatingSignals": [
+            "TV-5mins",
+            "TV-15mins",
+            "TV-60mins"
+        ],
+        "Definitions": [
+            {
+                "Name": "TV-5mins",
+                "Receiver": "TradingViewCryptoSignalReceiver",
+                "Configuration": {
+                    "PollingInterval": 7,
+                    "Period": 5,
+                    "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+                    "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+                }
+            },
+            {
+                "Name": "TV-15mins",
+                "Receiver": "TradingViewCryptoSignalReceiver",
+                "Configuration": {
+                    "PollingInterval": 7,
+                    "Period": 15,
+                    "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+                    "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+                }
+            },
+            {
+                "Name": "TV-60mins",
+                "Receiver": "TradingViewCryptoSignalReceiver",
+                "Configuration": {
+                    "PollingInterval": 7,
+                    "Period": 60,
+                    "RequestUrl": "https://scanner.tradingview.com/crypto/scan",
+                    "RequestData": "{\"filter\":[{\"left\":\"exchange\",\"operation\":\"equal\",\"right\":\"%EXCHANGE%\"},{\"left\":\"name\",\"operation\":\"match\",\"right\":\"%MARKET%\"}],\"columns\":[\"name\",\"close%PERIOD%\",\"change%PERIOD%\",\"volume%PERIOD%\",\"Recommend.All%PERIOD%\"],\"options\":{\"lang\":\"en\"},\"range\":[0,500]}"
+                }
+            }
+        ],
+        "Rules": [
+            {
+                "Enabled": true,
+                "Name": "Safe",
+                "CostMultiplier": 1,
+                "Conditions": [
+                    {
+                        "Signal": "TV-15mins",
+                        "MinRating": 0.5,
+                        "MinVolume": 100000
+                    },
+                    {
+                        "Signal": "TV-60mins",
+                        "MinRating": 0.3
+                    }
+                ],
+                "Trailing": {
+                    "Enabled": true,
+                    "MinDuration": 25,
+                    "MaxDuration": 180,
+                    "StartConditions": [
+                        {
+                            "Signal": "TV-15mins",
+                            "MaxRating": 0.45,
+                            "MinVolume": 100000
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
