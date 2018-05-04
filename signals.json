@@ -78,13 +78,14 @@
                 }
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Name": "Fast",
                 "CostMultiplier": 1,
                 "Conditions": [
                     {
                         "Signal": "TV-5mins",
-                        "MinRating": 0.25
+                        "MinVolume": 10000,
+                        "MinRating": 0.3
                     }
                 ],
                 "Trailing": {
@@ -94,12 +95,13 @@
                     "StartConditions": [
                         {
                             "Signal": "TV-5mins",
-                            "MinRating": 0.05,
-                            "MaxRating": 0.1
+                            "MinRating": 0.1,
+                            "MaxRating": 0.2
                         },
                         {
                             "Signal": "TV-15mins",
-                            "MinVolume": 100000
+                            "MinRating": -0.15,
+                            "MaxRating": 0.2
                         }
                     ]
                 }
