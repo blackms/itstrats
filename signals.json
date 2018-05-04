@@ -52,7 +52,7 @@
                         "MinRating": 0.2,
                         "MaxRating": 0.4,
                         "MinGlobalRating": -1,
-                        "MaxGlobalRating": 1
+                        "MaxGlobalRating": 2
                     },
                     {
                         "Signal": "TV-15mins",
@@ -78,27 +78,34 @@
                 }
             },
             {
-                "Enabled": false,
-                "Name": "Fast",
+                "Enabled": true,
+                "Name": "Bear Market",
                 "CostMultiplier": 1,
                 "Conditions": [
                     {
                         "Signal": "TV-5mins",
-                        "MinRating": 0.25
+                        "MinRating": 0.5,
+                        "MinGlobalRating": -2.5,
+                        "MaxGlobalRating": -1
+                    },
+                    {
+                        "Signal": "TV-15mins",
+                        "MinRating": 0.5
+                    },
+                    {
+                        "Signal": "TV-60mins",
+                        "MinRating": 0.5
                     }
                 ],
                 "Trailing": {
                     "Enabled": true,
-                    "MinDuration": 0,
-                    "MaxDuration": 240,
+                    "MinDuration": 30,
+                    "MaxDuration": 480,
                     "StartConditions": [
                         {
-                            "Signal": "TV-5mins",
-                            "MinRating": 0.05,
-                            "MaxRating": 0.1
-                        },
-                        {
                             "Signal": "TV-15mins",
+                            "MinRating": -0.5,
+                            "MaxRating": 0.1,
                             "MinVolume": 100000
                         }
                     ]
