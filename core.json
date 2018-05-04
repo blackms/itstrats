@@ -1,0 +1,12 @@
+﻿{
+  "Core": {
+    "DebugMode": true,
+    "PasswordProtected":  true, // Use password authentication
+    "Password": "b84967c4f073b71405404f3719c788cd", // MD5-encrypted password
+    "InstanceName": "it-eth-01", // Must be alphanumeric. Used by the web interface & notification service to distinguish between different bot instances (when running multiple)
+    "TimezoneOffset": 1, // Timezone offset from UTC (in hours), used by stats
+    "HealthCheckEnabled": true,
+    "HealthCheckInterval": 180, // Interval to check that all the data is up to date and services are running correctly (in seconds)
+    "HealthCheckSuspendTradingTimeout": 900 // Suspend trading (disable sells and buys) if any of the health checks did not pass in a specified period of time (in seconds)
+  }
+}
