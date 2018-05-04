@@ -28,7 +28,7 @@
     "SellMargin": 1.10, 
     "SellTrailing": 0.15, 
     "SellTrailingStopMargin": 1, 
-    "SellStopLossEnabled": false, 
+    "SellStopLossEnabled": true, 
     "SellStopLossMargin": -10, 
 
     "SellDCAMargin": 1.10,
