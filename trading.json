@@ -1,76 +1,81 @@
-﻿{
+{
   "Trading": {
-    
     "Enabled": true,
-    "Market": "BTC", 
-    "Exchange": "Binance", 
-    "MaxPairs": 30, 
-    "MinCost": 0.5, 
-    "ExcludedPairs": [ "BNBBTC" ], 
-
-    
-    "BuyEnabled": true, 
-    "BuyType": "Market", 
-    "BuyMaxCost": 0.8, 
-    "BuyMinBalance": 0, 
-    "BuySamePairTimeout": 900, 
-    "BuyTrailing": -0.15, 
-    "BuyTrailingStopMargin": 0.05, 
-
-    "BuyDCAEnabled": true, 
-    "BuyDCAMultiplier": 1, 
-    "BuyDCASamePairTimeout": 3600, 
-    "BuyDCATrailing": -0.15, 
-    "BuyDCATrailingStopMargin": 0.05, 
-
-    
-    "SellEnabled": true, 
-    "SellType": "Market", 
-    "SellMargin": 1, 
-    "SellTrailing": 0.25, 
-    "SellTrailingStopMargin": 1.30, 
-    "SellStopLossEnabled": true, 
-    "SellStopLossMargin": -10, 
-
-    "SellDCAMargin": 1.30, 
-    "SellDCATrailing": 0.40, 
-    "SellDCATrailingStopMargin": 1.00, 
-
-    
-    "DCALevels": [ 
+    "Market": "BTC",
+    "Exchange": "Binance",
+    "MaxPairs": 60,
+    "MinCost": 0.1,
+    "ExcludedPairs": [
+      "BNBBTC"
+    ],
+    "BuyEnabled": true,
+    "BuyType": "Market",
+    "BuyMaxCost": 0.5,
+    "BuyMultiplier": 1,
+    "BuyMinBalance": 0,
+    "BuySamePairTimeout": 900,
+    "BuyTrailing": -0.15,
+    "BuyTrailingStopMargin": 0.05,
+    "BuyDCAEnabled": true,
+    "BuyDCAMultiplier": 1,
+    "BuyDCAMinBalance": 0,
+    "BuyDCASamePairTimeout": 4200,
+    "BuyDCATrailing": -0.15,
+    "BuyDCATrailingStopMargin": 0.05,
+    "SellEnabled": true,
+    "SellType": "Market",
+    "SellMargin": 2,
+    "SellTrailing": 0.7,
+    "SellTrailingStopMargin": 1.7,
+    "SellStopLossEnabled": false,
+    "SellStopLossAfterDCA": true,
+    "SellStopLossMinAge": 3,
+    "SellStopLossMargin": -20,
+    "SellDCAMargin": 1.3,
+    "SellDCATrailing": 0.5,
+    "SellDCATrailingStopMargin": 1,
+    "DCALevels": [
       {
-        "Margin": -1, 
-        "BuyMultiplier": 1, 
-        "BuySamePairTimeout": 3600, 
-        "BuyTrailing": -0.15, 
-        "BuyTrailingStopMargin": 0.05, 
-        "SellMargin": 1.30, 
-        "SellTrailing": 0.50, 
-        "SellTrailingStopMargin": 1.00 
+        "Margin": -0.5
+      },
+      {
+        "Margin": -1
       },
       {
         "Margin": -1.5
       },
       {
-        "Margin": -1.5
+        "Margin": -2.5
       },
       {
-        "Margin": -2
+        "Margin": -3.5
       },
       {
-        "Margin": -3
+        "Margin": -5.5
+      },
+      {
+        "Margin": -7.5
+      },
+      {
+        "Margin": -12.5
+      },
+      {
+        "Margin": -20.5
+      },
+      {
+        "Margin": -30.5
+      },
+      {
+        "Margin": -35.5
       }
     ],
-
-    
-    "TradingCheckInterval": 1, 
-    "AccountRefreshInterval": 360, 
-    "AccountInitialBalance": 0.2, 
-    "AccountInitialBalanceDate": "2018-04-08T00:00:00+00:00", 
+    "TradingCheckInterval": 1,
+    "AccountRefreshInterval": 360,
+    "AccountInitialBalance": 0.12,
+    "AccountInitialBalanceDate": "2018-04-08T00:00:00+00:00",
     "AccountFilePath": "data/exchange-account.json",
-
-    "VirtualTrading": true, 
-    "VirtualAccountInitialBalance": 200, 
+    "VirtualTrading": false,
+    "VirtualAccountInitialBalance": 200,
     "VirtualAccountFilePath": "data/virtual-account.json"
   }
 }

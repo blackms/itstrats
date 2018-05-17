@@ -1,7 +1,7 @@
 ﻿{
   "Exchange": {
-    "KeysPath": "keys.bin", 
-    "RateLimitOccurences": 40, 
-    "RateLimitTimeframe": 10 
+    "KeysPath": "keys.bin", // Create using 'dotnet IntelliTrader.dll --encrypt'. The encrypted file is only valid for the current user and only on the computer it is created on.
+    "RateLimitOccurences": 40, // Requests number limit to the API within the specified timeframe
+    "RateLimitTimeframe": 10 // Timeframe for which to limit the requests number (in seconds)
   }
 }

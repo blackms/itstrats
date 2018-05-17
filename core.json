@@ -1,12 +1,12 @@
-﻿{
+{
   "Core": {
     "DebugMode": true,
-    "PasswordProtected":  true, 
-    "Password": "b84967c4f073b71405404f3719c788cd", 
-    "InstanceName": "ReallyHighBalance", 
-    "TimezoneOffset": 1, 
+    "PasswordProtected": true,
+    "Password": "eb91b2db77ff75d651f606b394d317c2",
+    "InstanceName": "ReallyHighBalance",
+    "TimezoneOffset": 1,
     "HealthCheckEnabled": true,
-    "HealthCheckInterval": 180, 
-    "HealthCheckSuspendTradingTimeout": 900 
+    "HealthCheckInterval": 180,
+    "HealthCheckSuspendTradingTimeout": 900
   }
 }
